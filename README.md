@@ -13,7 +13,9 @@ login.properties：无语言配置时生效；login_zh_CN.properties：中文生
 ### 2，配置文件中指定资源文件
 在我们的application.properties中添加配置参数，让我们的配置生效：
 多个资源时用逗号分隔
-```spring.messages.basename=i18n.login```
+```
+spring.messages.basename=i18n.login
+```
 
 ### 3，视图（Thymeleaf）中使用key来获取国际化内容
 ```
@@ -149,8 +151,9 @@ public class I18nUtils {
 ```
 
 ### 4，可以调用啦
-```I18nUtils.getMessage("login.success");```
-
+```
+I18nUtils.getMessage("login.success");
+```
 
 #### 参考文献
 
