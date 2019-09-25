@@ -7,15 +7,13 @@ import org.springframework.stereotype.Service;
 import com.spring.boot.mapper.UserMapper;
 import com.spring.boot.entity.User;
 
+import java.util.List;
+
 @Service
 public class UserService {
 
     @Autowired
     private UserMapper userMapper;
-
-    public void insert(User user) {
-        userMapper.insert(user);
-    }
 
     /**
      * 登录验证
@@ -36,5 +34,25 @@ public class UserService {
             return I18nUtils.getMessage("login.success");
         }
         return I18nUtils.getMessage("login.error.password");
+    }
+
+    public int insert(User user) {
+        return userMapper.insert(user);
+    }
+
+    public int delete(Integer id) {
+        return userMapper.deleteById(id);
+    }
+
+    public int update(User user) {
+        return userMapper.updateById(user);
+    }
+
+    public User searchById(Integer id) {
+        return userMapper.selectById(id);
+    }
+
+    public List<User> search() {
+        return userMapper.queryAll();
     }
 }
