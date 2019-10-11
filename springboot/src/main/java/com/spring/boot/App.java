@@ -26,8 +26,8 @@ public class App implements WebMvcConfigurer {
     @Bean
     public LocaleResolver localeResolver() {
         SessionLocaleResolver slr = new SessionLocaleResolver();
-        // 默认语言
-        slr.setDefaultLocale(Locale.SIMPLIFIED_CHINESE);
+//        // 默认语言(配置之后浏览器切换无效)
+//        slr.setDefaultLocale(Locale.SIMPLIFIED_CHINESE);
         return slr;
     }
 

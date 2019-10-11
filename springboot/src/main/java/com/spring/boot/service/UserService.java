@@ -1,6 +1,6 @@
 package com.spring.boot.service;
 
-import com.spring.boot.common.utils.I18nUtils;
+import com.spring.boot.common.utils.MessageUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,16 +24,16 @@ public class UserService {
      */
     public String login(String loginName, String password) {
         if (loginName == null || "".equals(loginName) || password == null || "".equals(password)) {
-            return I18nUtils.getMessage("login.error.empty");
+            return MessageUtils.getMessage("login.error.empty");
         }
         User user = new User();
         user.setLoginName(loginName);
         user.setPassword(password);
         User users = userMapper.selectOneByCondition(user);
         if (users != null) {
-            return I18nUtils.getMessage("login.success");
+            return MessageUtils.getMessage("login.success");
         }
-        return I18nUtils.getMessage("login.error.password");
+        return MessageUtils.getMessage("login.error.password");
     }
 
     public int insert(User user) {

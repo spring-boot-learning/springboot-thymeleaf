@@ -1,6 +1,6 @@
 package com.spring.boot.controller;
 
-import com.spring.boot.common.utils.I18nUtils;
+import com.spring.boot.common.utils.MessageUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,7 +15,7 @@ public class HelloController {
     public ModelAndView index(ModelAndView mv) {
         mv.setViewName("hello");
 //        mv.addObject("messageKey","hello.welcome");
-        mv.addObject("message", I18nUtils.getMessage("hello.welcome"));
+        mv.addObject("message", MessageUtils.getMessage("hello.welcome"));
         System.out.println("-----> go to welcome page...");
         return mv;
     }
@@ -23,6 +23,6 @@ public class HelloController {
     @RequestMapping("/name/{myName}")
     @ResponseBody
     public String demo(@PathVariable String myName) {
-        return I18nUtils.getMessage("hello.hello") + myName + "!!!";
+        return MessageUtils.getMessage("hello.hello") + myName + "!!!";
     }
 }

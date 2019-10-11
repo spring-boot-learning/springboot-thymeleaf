@@ -1,6 +1,6 @@
 package com.spring.boot.webapi;
 
-import com.spring.boot.common.utils.I18nUtils;
+import com.spring.boot.common.utils.MessageUtils;
 import com.spring.boot.entity.User;
 import com.spring.boot.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,20 +25,20 @@ public class UserController {
     @RequestMapping(value = "", method = POST, produces = "application/json;charset=UTF-8")
     public String addUser(@RequestBody User user) {
         int cnt = userService.insert(user);
-        return I18nUtils.getMessage("user.add") + cnt;
+        return MessageUtils.getMessage("user.add") + cnt;
     }
 
     @RequestMapping(value = "/{id}", method = DELETE, produces = "application/json;charset=UTF-8")
     public String deleteUser(@PathVariable Integer id) {
         int cnt = userService.delete(id);
-        return I18nUtils.getMessage("user.delete") + cnt;
+        return MessageUtils.getMessage("user.delete") + cnt;
     }
 
     @RequestMapping(value = "/{id}", method = PUT, produces = "application/json;charset=UTF-8")
     public String updateUser(@PathVariable Integer id, @RequestBody User user) {
         user.setId(id);
         int cnt = userService.update(user);
-        return I18nUtils.getMessage("user.update") + cnt;
+        return MessageUtils.getMessage("user.update") + cnt;
     }
 
     @RequestMapping(value = "/{id}", method = GET, produces = "application/json;charset=UTF-8")
